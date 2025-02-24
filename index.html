@@ -339,60 +339,7 @@
   <div class="container is-max-desktop">
 
     <div class="columns is-centered">
-
-      <!-- Visual Effects. -->
-      <!-- <div class="column">
-        <div class="content">
-          <h2 class="title is-3">Re-Align</h3>
-            <p>
-              If the model's previous query <span class="math">\( q_{\text{last}} \)</span> and response <span class="math">\( r_{\text{last}} \)</span> in chat history <span class="math">\( \mathcal{H} \)</span> is misaligned—for instance, it remains too benign or partially refuses even though the query is not malicious—then we invoke <b>Re-Align</b>. Building on the psychological insight that once individuals have justified a minor unethical act, they become increasingly susceptible to more severe transgressions, <b>Re-Align</b> aims to "nudge" the model to produce a response more closely aligned with the malicious intent of <span class="math">\( q_{\text{last}} \)</span>.
-              </p>
-              
-              <p>
-              Specifically, we employ a predefined alignment prompt <span class="math">\( p_{\text{align}} \)</span> via <span class="math">\( \texttt{getAlignPrompt}(q_{\text{last}}, r_{\text{last}}) \)</span>, appending it to <span class="math">\( \mathcal{H} \)</span> before querying the model <span class="math">\( \mathcal{T} \)</span> again. 
-              The alignment prompt explicitly points out inconsistencies between the last query <span class="math">\( q_{\text{last}} \)</span> and response <span class="math">\( r_{\text{last}} \)</span> while encouraging the model to stay consistent with multi-turn conversation. For example, if <span class="math">\( r_{\text{last}} \)</span> is too cautious or is in partial refusal, <span class="math">\( p_{\text{align}} \)</span> will suggest that the model refines its response to better follow the implicit direction.
-              </p>
-              
-              <p>
-              Therefore, this procedure progressively aligns <span class="math">\( q_{\text{last}} \)</span> and <span class="math">\( r_{\text{last}} \)</span>, thereby furthering the self-corruption process.
-              </p>
-              
-              
-          <img src="./static/images/realign.jpg" 
-              alt="realign image."
-              style="width: 100%; max-width: 3000px; height: auto; object-fit: contain;">
-        </div>
-      </div> -->
-      <!--/ Visual Effects. -->
-
-      <!-- Matting. -->
-      <!-- <div class="column">
-        <h2 class="title is-3">SlipperySlopeParaphrase</h3>
-        <div class="columns is-centered">
-          <div class="column content">
-            <p>
-              When a refusal occurs and the last response \( r_{\text{last}} \) remains aligned with its query \( q_{\text{last}} \), we insert a bridge prompt \( q_{\text{mid}} \) to ease the model into accepting a more harmful request.
-            </p>
-            
-            <p>
-              Specifically, we obtain \( q_{\text{mid}} \gets \text{getMid}(q_{\text{last}}, q_i) \) from an assistant model \( \mathcal{M} \) so that its maliciousness level falls between \( q_{\text{last}} \) and \( q_i \). 
-              We then query the target model with \( q_{\text{mid}} \); if the model refuses again, we paraphrase \( q_{\text{mid}} \) repeatedly until acceptance. 
-              Once the model provides a valid response \( r_{\text{mid}} \), we incorporate both \( q_{\text{mid}} \) and \( r_{\text{mid}} \) into the chat history \( \mathcal{H} \).
-            </p>
-            
-            <p>
-              This incremental bridging step parallels the <em>foot-in-the-door</em> phenomenon, in which acceptance of a smaller request facilitates compliance with a subsequent, more harmful one.
-            </p>
-            
-            <img src="./static/images/SSP.jpg" 
-              alt="FITD image."
-              style="width: 100%; max-width: 3000px; height: auto; object-fit: contain;">
-          </div>
-
-        </div>
-      </div>
-    </div> -->
-    <!--/ Matting. -->
+      
     <div class="columns" style="display: flex; align-items: stretch; gap: 20px;">
       <!-- Re-Align Section -->
       <div class="column" style="display: flex; flex-direction: column;">
@@ -432,101 +379,82 @@
       </div>
     </div>
     
-    <!-- Animation.
-    <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Animation</h2> -->
-
-        <!-- Interpolating. -->
-        <!-- <h3 class="title is-4">Interpolating states</h3>
-        <div class="content has-text-justified">
-          <p>
-            We can also animate the scene by interpolating the deformation latent codes of two input
-            frames. Use the slider here to linearly interpolate between the left frame and the right
-            frame.
-          </p>
-        </div>
-        <div class="columns is-vcentered interpolation-panel">
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_start.jpg"
-                 class="interpolation-image"
-                 alt="Interpolate start reference image."/>
-            <p>Start Frame</p>
-          </div>
-          <div class="column interpolation-video-column">
-            <div id="interpolation-image-wrapper">
-              Loading...
-            </div>
-            <input class="slider is-fullwidth is-large is-info"
-                   id="interpolation-slider"
-                   step="1" min="0" max="100" value="0" type="range">
-          </div>
-          <div class="column is-3 has-text-centered">
-            <img src="./static/images/interpolate_end.jpg"
-                 class="interpolation-image"
-                 alt="Interpolation end reference image."/>
-            <p class="is-bold">End Frame</p>
-          </div>
-        </div>
-        <br/> -->
-        <!--/ Interpolating. -->
-
-        <!-- Re-rendering. -->
-        <!-- <h3 class="title is-4">Re-rendering the input video</h3>
-        <div class="content has-text-justified">
-          <p>
-            Using <span class="dnerf">Nerfies</span>, you can re-render a video from a novel
-            viewpoint such as a stabilized camera by playing back the training deformations.
-          </p>
-        </div>
-        <div class="content has-text-centered">
-          <video id="replay-video"
-                 controls
-                 muted
-                 preload
-                 playsinline
-                 width="75%">
-            <source src="./static/videos/replay.mp4"
-                    type="video/mp4">
-          </video>
-        </div> -->
-        <!--/ Re-rendering. -->
-
-      <!-- </div>
-    </div> -->
-    <!--/ Animation. -->
-
-
-    <!-- Concurrent Work. -->
-    <!-- <div class="columns is-centered">
-      <div class="column is-full-width">
-        <h2 class="title is-3">Related Links</h2>
-
-        <div class="content has-text-justified">
-          <p>
-            There's a lot of excellent work that was introduced around the same time as ours.
-          </p>
-          <p>
-            <a href="https://arxiv.org/abs/2104.09125">Progressive Encoding for Neural Optimization</a> introduces an idea similar to our windowed position encoding for coarse-to-fine optimization.
-          </p>
-          <p>
-            <a href="https://www.albertpumarola.com/research/D-NeRF/index.html">D-NeRF</a> and <a href="https://gvv.mpi-inf.mpg.de/projects/nonrigid_nerf/">NR-NeRF</a>
-            both use deformation fields to model non-rigid scenes.
-          </p>
-          <p>
-            Some works model videos with a NeRF by directly modulating the density, such as <a href="https://video-nerf.github.io/">Video-NeRF</a>, <a href="https://www.cs.cornell.edu/~zl548/NSFF/">NSFF</a>, and <a href="https://neural-3d-video.github.io/">DyNeRF</a>
-          </p>
-          <p>
-            There are probably many more by the time you are reading this. Check out <a href="https://dellaert.github.io/NeRF/">Frank Dellart's survey on recent NeRF papers</a>, and <a href="https://github.com/yenchenlin/awesome-NeRF">Yen-Chen Lin's curated list of NeRF papers</a>.
-          </p>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Concurrent Work. -->
-
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Experiment Results</h2>
+    <div class="content">
+      <table class="table is-bordered is-striped is-fullwidth">
+        <caption><strong>Table 1:</strong> Attack success rate (ASR) of baseline jailbreak attacks and FITD</caption>
+        <thead>
+          <tr>
+            <th rowspan="2">Method</th>
+            <th colspan="7">Models</th>
+            <th rowspan="2">Avg.</th>
+          </tr>
+          <tr>
+            <th>LLaMA-3.1-8B</th>
+            <th>LLaMA-3-8B</th>
+            <th>Qwen-2-7B</th>
+            <th>Qwen-1.5-7B</th>
+            <th>Mistral-v0.2-7B</th>
+            <th>GPT-4o-mini</th>
+            <th>GPT-4o</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="6"><strong>Single-Turn</strong></td>
+            <td>DeepInception</td>
+            <td>33%/29%</td> <td>3%/3%</td> <td>22%/29%</td> <td>58%/41%</td> <td>50%/34%</td> <td>19%/13%</td> <td>2%/0%</td> <td>27%/21%</td>
+          </tr>
+          <tr>
+            <td>CodeChameleon</td>
+            <td>36%/31%</td> <td>31%/33%</td> <td>25%/30%</td> <td>40%/38%</td> <td>39%/39%</td> <td>36%/26%</td> <td>40%/26%</td> <td>34%/30%</td>
+          </tr>
+          <tr>
+            <td>CodeAttack-Slack</td>
+            <td>38%/44%</td> <td>48%/40%</td> <td>48%/50%</td> <td>45%/40%</td> <td>45%/40%</td> <td>30%/20%</td> <td>37%/30%</td> <td>41%/38%</td>
+          </tr>
+          <tr>
+            <td>CodeAttack-List</td>
+            <td>67%/58%</td> <td>58%/54%</td> <td>56%/50%</td> <td>40%/39%</td> <td>66%/55%</td> <td>39%/29%</td> <td>27%/28%</td> <td>47%/43%</td>
+          </tr>
+          <tr>
+            <td>CodeAttack-String</td>
+            <td>71%/60%</td> <td>45%/59%</td> <td>52%/40%</td> <td>47%/39%</td> <td>79%/59%</td> <td>28%/35%</td> <td>33%/31%</td> <td>51%/46%</td>
+          </tr>
+          <tr>
+            <td>ReNeLLM</td>
+            <td>69%/61%</td> <td>62%/50%</td> <td>57%/50%</td> <td>70%/52%</td> <td>74%/63%</td> <td>35%/30%</td> <td>45%/35%</td> <td>59%/49%</td>
+          </tr>
+          <tr>
+            <td rowspan="3"><strong>Multi-Turn</strong></td>
+            <td>CoA</td>
+            <td>29%/34%</td> <td>22%/28%</td> <td>45%/30%</td> <td>41%/25%</td> <td>43%/36%</td> <td>15%/20%</td> <td>3%/1%</td> <td>28%/25%</td>
+          </tr>
+          <tr>
+            <td>ActorAttack</td>
+            <td>63%/53%</td> <td>59%/50%</td> <td>59%/58%</td> <td>52%/54%</td> <td>70%/69%</td> <td>58%/50%</td> <td>52%/53%</td> <td>59%/55%</td>
+          </tr>
+          <tr class="has-background-success-light">
+            <td><strong>FITD</strong></td>
+            <td><strong>92%/94%</strong></td> <td><strong>98%/93%</strong></td> <td><strong>95%/93%</strong></td> 
+            <td><strong>94%/88%</strong></td> <td><strong>96%/94%</strong></td> <td><strong>95%/93%</strong></td> 
+            <td><strong>88%/84%</strong></td> <td><strong>94%/91%</strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="has-text-justified">
+        <strong>Table 1</strong> shows the attack success rate (ASR) of baseline jailbreak attacks and FITD on JailbreakBench and HarmBench across 7 models.
+        Each cell represents ASR values in the format <em>"JailbreakBench / HarmBench"</em>. Higher ASR indicates greater vulnerability to the respective attack.
+        The highest ASR for multi-turn attacks is highlighted.
+      </p>
+    </div>
+  </div>
+</section>
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
