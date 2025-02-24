@@ -18,66 +18,67 @@
   <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
-      /* 默认收拢状态 */
-  .expandable {
+    /* 默认收拢状态 */
+    .expandable {
       max-height: 0;  /* 确保内容初始不可见 */
       overflow: hidden;
       transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
       padding: 0 15px; /* 初始状态去除内边距，防止占位 */
-  }
+    }
 
-  /* 鼠标悬停时展开 */
-  .experiment-card:hover .expandable {
+    /* 鼠标悬停时展开 */
+    .experiment-card:hover .expandable {
       max-height: 800px; /* 设定足够大的高度，确保完整展开 */
       padding: 15px; /* 让内边距恢复，避免视觉突兀 */
-  }
+    }
 
-  /* 卡片样式 */
-  .experiment-card {
+    /* 卡片样式 */
+    .experiment-card {
       background: white;
       border-radius: 10px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       transition: all 0.3s ease-in-out;
       padding: 15px;
       cursor: pointer;
-  }
+      margin: 20px auto;
+      max-width: 800px;
+    }
 
-  /* 头部标题样式 */
-  .experiment-header {
+    /* 头部标题样式 */
+    .experiment-header {
       background-color: #87CEFA;
       color: white;
       padding: 15px;
       font-weight: bold;
       text-align: center;
       border-radius: 5px;
-  }
+      margin-bottom: 10px;
+    }
 
-  /* 表格区域 */
-  .experiment-table {
+    /* 表格区域 */
+    .experiment-table {
       width: 100%;
       overflow-x: auto;
-  }
+    }
 
-  /* 表格样式 */
-  .experiment-table table {
+    /* 表格样式 */
+    .experiment-table table {
       border-collapse: collapse;
       width: 100%;
       text-align: center;
-  }
+    }
 
-  /* 表格单元格 */
-  .experiment-table th, .experiment-table td {
+    /* 表格单元格 */
+    .experiment-table th, .experiment-table td {
       border: 1px solid black;
       padding: 10px;
-  }
+    }
 
-  /* 表头背景色 */
-  .experiment-table th {
+    /* 表头背景色 */
+    .experiment-table th {
       background-color: #f2f2f2;
-  }
-
-
-  </style> 
+    }
+  </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -102,7 +103,7 @@
   <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="icon" href="./static/images/favicon.svg">
+  <link rel="icon" href="./static/images/FITD.svg">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -567,18 +568,19 @@
       </div>
     </div>
     <div class="container">
-        <div class="experiment-card">
-            <div class="experiment-header">
-                ISG demonstrates commendable performance across all tasks
-            </div>
-            <div class="experiment-content">
-                Each module within ISG aligns well with human annotation. For structure, ISG exhibits consistent excellence across all tasks, indicating robust potential for capturing structural requirements in interleaved generation instructions. In both Q-Gen and VQA modules, ISG successfully extracts fine-grained requirements with high fidelity to ground truth. 
-
-                For the VQA module, the scoring approach consistently outperforms the “Yes-or-No” method, suggesting that more nuanced judgments align better with human evaluations. Vision-guided tasks consistently underperform compared to other tasks, with a noticeable decline in both Q-Gen and VQA modules, underscoring the challenges in automatically evaluating fine-grained aspects of interleaved text-and-image generation.
-
-                In holistic evaluation, leveraging a golden answer significantly outperforms the zero-shot judging setting of MLLMs, especially in vision-guided tasks, yielding an average 20% improvement in human agreement.
-            </div>
+      <div class="experiment-card">
+        <div class="experiment-header">
+          ISG demonstrates commendable performance across all tasks
         </div>
+        <!-- 将内容放入expandable类中，而不是experiment-content -->
+        <div class="expandable">
+          <p>Each module within ISG aligns well with human annotation. For structure, ISG exhibits consistent excellence across all tasks, indicating robust potential for capturing structural requirements in interleaved generation instructions. In both Q-Gen and VQA modules, ISG successfully extracts fine-grained requirements with high fidelity to ground truth.</p>
+          
+          <p>For the VQA module, the scoring approach consistently outperforms the "Yes-or-No" method, suggesting that more nuanced judgments align better with human evaluations. Vision-guided tasks consistently underperform compared to other tasks, with a noticeable decline in both Q-Gen and VQA modules, underscoring the challenges in automatically evaluating fine-grained aspects of interleaved text-and-image generation.</p>
+          
+          <p>In holistic evaluation, leveraging a golden answer significantly outperforms the zero-shot judging setting of MLLMs, especially in vision-guided tasks, yielding an average 20% improvement in human agreement.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
