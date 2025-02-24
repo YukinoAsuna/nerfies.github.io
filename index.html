@@ -7,7 +7,17 @@
   <meta name="keywords" content="Jailbreak, LLM, Foot-In-The-Door">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Foot-In-The-Door: A Multi-turnJailbreak for LLMs</title>
-
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']]
+      }
+    };
+  </script>
+  <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -312,8 +322,6 @@
             Inspired by psychological foot-in-the-door principles, we introduce <span class="tech">\Tech</span>, 
             a novel multi-turn jailbreak method that leverages the phenomenon where minor initial commitments 
             lower resistance to more significant or more unethical transgressions.
-        </p>
-        <p>
             Our approach progressively escalates the malicious intent of user queries through intermediate bridge prompts 
             and aligns the model's response by itself to induce toxic responses.
         </p>
@@ -331,7 +339,7 @@
     <!--/ Abstract. -->
 
     <!-- Paper video. -->
-    <div class="columns is-centered has-text-centered">
+    <!-- <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Video</h2>
         <div class="publication-video">
@@ -339,11 +347,52 @@
                   frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Paper video. -->
   </div>
 </section>
 
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">FITD: Foot-In-The-Door Multi-turn Jailbreak Method</h2>
+        <div class="content has-text-justified">
+          
+          <img src="./static/images/main.jpg"
+          class="interpolation-image"
+          alt="Introduction image."/>
+          <h2 class="subtitle has-text-centered">
+            Overview of <span class="tech">\Tech</span>.
+            The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
+            Through multi-turn interactions, self-corruption is enhanced via **Re-Align** and **SSParaphrase**, ensuring the attack remains effective. 
+            
+            **SSParaphrase (SlipperySlopeParaphrase)** refines queries by generating intermediate malicious-level queries 
+            \( q_{\text{mid}} \) between \( q_{\text{last}} \) and \( q_i \).
+            
+            **Re-Align** uses prompt \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
+          </h2>
+          
+        
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <!-- <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div> -->
+    <!--/ Paper video. -->
+  </div>
+</section>
 
 <section class="section">
   <div class="container is-max-desktop">
