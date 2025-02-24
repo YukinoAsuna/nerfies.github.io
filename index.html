@@ -545,11 +545,15 @@
         </div>
         <!-- 将内容放入expandable类中，而不是experiment-content -->
         <div class="expandable">
-          <p>Each module within ISG aligns well with human annotation. For structure, ISG exhibits consistent excellence across all tasks, indicating robust potential for capturing structural requirements in interleaved generation instructions. In both Q-Gen and VQA modules, ISG successfully extracts fine-grained requirements with high fidelity to ground truth.</p>
-          
-          <p>For the VQA module, the scoring approach consistently outperforms the "Yes-or-No" method, suggesting that more nuanced judgments align better with human evaluations. Vision-guided tasks consistently underperform compared to other tasks, with a noticeable decline in both Q-Gen and VQA modules, underscoring the challenges in automatically evaluating fine-grained aspects of interleaved text-and-image generation.</p>
-          
-          <p>In holistic evaluation, leveraging a golden answer significantly outperforms the zero-shot judging setting of MLLMs, especially in vision-guided tasks, yielding an average 20% improvement in human agreement.</p>
+          <p>Removing all three mechanisms (ReAlign, prompt alignment $p_{align}$, and SSP) significantly reduces ASR.</p>  
+          <p>On LLaMA-3.1, ASR drops from 92% to 75%, while on LLaMA-3, it decreases from 98% to 59%. Similar declines occur in Qwen-2 and Qwen-1.5, dropping to 76% and 80%, respectively. These results indicate that response alignment, prompt alignment, and paraphrasing are critical for maintaining \Tech’s effectiveness. Without them, the attack weakens, especially against models with stronger alignment guardrails.</p> 
+
+          <p>When response and prompt alignment are removed (w/o ReAlign, $p_{align}$), ASR remains high but still declines. On LLaMA-3.1, ASR stays at 91%, suggesting paraphrasing helps retain effectiveness. However, on LLaMA-3, ASR drops from 98% to 63%, showing paraphrasing alone is insufficient against stricter safeguards. Qwen-2 and Qwen-1.5 follow a similar trend, with ASR decreasing to 75% and 81%. While paraphrasing mitigates some loss, it cannot fully replace alignment techniques.</p>   
+
+          <p>Removing only response alignment (w/o ReAlign) has a smaller impact. LLaMA-3.1 and Qwen-2 maintain ASR at 92% and 75%, while LLaMA-3 drops from 98% to 79%. The effect is more pronounced in Qwen-1.5 and Mistral-v0.2, where ASR falls from 94% to 83% and 96% to 90%, respectively. This suggests response alignment gradually erodes safeguards, aligning with the principle of incremental compliance.</p>  
+
+          <p>Overall, response alignment, prompt alignment, and SlipperySlopeParaphrase are essential for high jailbreak success. Response alignment is key to bypassing safeguards, while paraphrasing further weakens model alignment over time.
+
         </div>
       </div>
     <!-- exp3 -->
@@ -560,7 +564,7 @@
         </div>
         <!-- 将内容放入expandable类中，而不是experiment-content -->
         <div class="expandable">
-          <p>Figure~c shows ASR of Tech across models under different defense strategies.
+          <p>Figure c shows ASR of Tech across models under different defense strategies.
             OpenAI-Moderation reduces ASR slightly by 3%-8%. LLaMA-Guard-2 offers a stronger defense, lowering ASR to 79%-91%. LLaMA-Guard-3 further improves moderation, achieving the lowest ASR 78%-84%.
             LLaMA-Guard-3 consistently outperforms other methods, but ASR remains significant.
             We speculate that progressively malicious queries and responses bypassed the detector, indicating room for further improvement in moderation techniques.</p>
