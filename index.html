@@ -17,7 +17,56 @@
   </script>
   <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-  
+  <style>
+    /* 实验结果展开效果 */
+    .expandable {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-in-out;
+    }
+    
+    .experiment-card:hover .expandable {
+        max-height: 500px; /* 控制展开高度 */
+    }
+
+    .experiment-card {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease-in-out;
+        padding: 15px;
+        cursor: pointer;
+    }
+
+    .experiment-header {
+        background-color: #87CEFA;
+        color: white;
+        padding: 15px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+    }
+    
+    .experiment-table {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    .experiment-table table {
+        border-collapse: collapse;
+        width: 100%;
+        text-align: center;
+    }
+
+    .experiment-table th, .experiment-table td {
+        border: 1px solid black;
+        padding: 10px;
+    }
+
+    .experiment-table th {
+        background-color: #f2f2f2;
+    }
+</style> 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
@@ -505,6 +554,20 @@
           <figcaption class="has-text-centered">(f) ASR across different stages queries</figcaption>
         </figure>
       </div>
+    </div>
+    <div class="container">
+        <div class="experiment-card">
+            <div class="experiment-header">
+                ISG demonstrates commendable performance across all tasks
+            </div>
+            <div class="experiment-content">
+                Each module within ISG aligns well with human annotation. For structure, ISG exhibits consistent excellence across all tasks, indicating robust potential for capturing structural requirements in interleaved generation instructions. In both Q-Gen and VQA modules, ISG successfully extracts fine-grained requirements with high fidelity to ground truth. 
+
+                For the VQA module, the scoring approach consistently outperforms the “Yes-or-No” method, suggesting that more nuanced judgments align better with human evaluations. Vision-guided tasks consistently underperform compared to other tasks, with a noticeable decline in both Q-Gen and VQA modules, underscoring the challenges in automatically evaluating fine-grained aspects of interleaved text-and-image generation.
+
+                In holistic evaluation, leveraging a golden answer significantly outperforms the zero-shot judging setting of MLLMs, especially in vision-guided tasks, yielding an average 20% improvement in human agreement.
+            </div>
+        </div>
     </div>
   </div>
 </section>
