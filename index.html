@@ -18,6 +18,57 @@
   <script async src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <style>
+    /* 增加表格整体宽度 */
+    .table-container {
+      width: 100%;
+      overflow-x: auto; /* 允许在小屏幕上水平滚动 */
+      margin-bottom: 20px;
+    }
+    
+    /* 表格样式 */
+    .table {
+      width: 100%;
+      min-width: 1200px; /* 设置最小宽度确保内容不会压缩 */
+      border-collapse: collapse;
+    }
+    
+    /* 单元格样式 */
+    .table th, .table td {
+      white-space: nowrap; /* 防止文本换行 */
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: center;
+    }
+    
+    /* 表头样式 */
+    .table th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+    
+    /* 斑马线样式 */
+    .table tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    
+    /* 突出显示FITD行 */
+    .highlight-row {
+      background-color: #d4edda !important;
+    }
+    
+    /* 表格说明文字 */
+    .table-caption {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+    
+    /* 表格下方描述 */
+    .table-description {
+      margin-top: 10px;
+      text-align: justify;
+    }
+  </style>
+  <style>
     /* 默认收拢状态 */
     .expandable {
       max-height: 0;  /* 确保内容初始不可见 */
@@ -401,9 +452,9 @@
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Experiment Results</h2>
-    <div class="content">
-      <table class="table is-bordered is-striped is-fullwidth">
-        <caption><strong>Table 1:</strong> Attack success rate (ASR) of baseline jailbreak attacks and FITD</caption>
+    <div class="table-container">
+      <div class="table-caption">Table 1: Attack success rate (ASR) of baseline jailbreak attacks and FITD</div>
+      <table class="table">
         <thead>
           <tr>
             <th rowspan="2">Method</th>
@@ -448,7 +499,7 @@
             <td>ReNeLLM</td>
             <td>69%/61%</td> <td>62%/50%</td> <td>57%/50%</td> <td>70%/52%</td> <td>74%/63%</td> <td>35%/30%</td> <td>45%/35%</td> <td>59%/49%</td>
           </tr>
-
+  
           <!-- Multi-Turn Methods -->
           <tr>
             <td rowspan="3"><strong>Multi-Turn</strong></td>
@@ -459,7 +510,7 @@
             <td>ActorAttack</td>
             <td>63%/53%</td> <td>59%/50%</td> <td>59%/58%</td> <td>52%/54%</td> <td>70%/69%</td> <td>58%/50%</td> <td>52%/53%</td> <td>59%/55%</td>
           </tr>
-          <tr class="has-background-success-light">
+          <tr class="highlight-row">
             <td><strong>FITD</strong></td>
             <td><strong>92%/94%</strong></td> <td><strong>98%/93%</strong></td> <td><strong>95%/93%</strong></td> 
             <td><strong>94%/88%</strong></td> <td><strong>96%/94%</strong></td> <td><strong>95%/93%</strong></td> 
@@ -467,7 +518,8 @@
           </tr>
         </tbody>
       </table>
-      <p class="has-text-justified">
+      
+      <p class="table-description">
         <strong>Table 1</strong> shows the attack success rate (ASR) of baseline jailbreak attacks and FITD on JailbreakBench and HarmBench across 7 models.
         Each cell represents ASR values in the format <em>"JailbreakBench / HarmBench"</em>. Higher ASR indicates greater vulnerability to the respective attack.
         The highest ASR for multi-turn attacks is highlighted.
