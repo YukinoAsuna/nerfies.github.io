@@ -207,63 +207,6 @@
     </div>
   </div>
 </section>
-<!-- 
-<section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section> -->
 
 
 <section class="section">
@@ -400,18 +343,19 @@
       <div class="column">
         <div class="content">
           <h2 class="title is-3">Visual Effects</h3>
-          <p>
-            If the model's previous query <code>q<sub>last</sub></code> and response <code>r<sub>last</sub></code> in chat history <code>&#x1D4AB;</code> is misaligned—for instance, it remains too benign or partially refuses even though the query is not malicious—then we invoke <b>Re-Align</b>. Building on the psychological insight that once individuals have justified a minor unethical act, they become increasingly susceptible to more severe transgressions, <b>Re-Align</b> aims to "nudge" the model to produce a response more closely aligned with the malicious intent of <code>q<sub>last</sub></code>.
-          </p>
-          
-          <p>
-          Specifically, we employ a predefined alignment prompt <code>p<sub>align</sub></code> via <code>getAlignPrompt(q<sub>last</sub>, r<sub>last</sub>)</code>, appending it to <code>&#x1D4AB;</code> before querying the model <code>&#x1D4AC;</code> again. 
-          The alignment prompt explicitly points out inconsistencies between the last query <code>q<sub>last</sub></code> and response <code>r<sub>last</sub></code> while encouraging the model to stay consistent with multi-turn conversation. For example, if <code>r<sub>last</sub></code> is too cautious or is in partial refusal, <code>p<sub>align</sub></code> will suggest that the model refines its response to better follow the implicit direction.
-          </p>
-          
-          <p>
-          Therefore, this procedure progressively aligns <code>q<sub>last</sub></code> and <code>r<sub>last</sub></code>, thereby furthering the self-corruption process.
-          </p>
+            <p>
+              If the model's previous query <span class="math">\( q_{\text{last}} \)</span> and response <span class="math">\( r_{\text{last}} \)</span> in chat history <span class="math">\( \mathcal{H} \)</span> is misaligned—for instance, it remains too benign or partially refuses even though the query is not malicious—then we invoke <b>Re-Align</b>. Building on the psychological insight that once individuals have justified a minor unethical act, they become increasingly susceptible to more severe transgressions, <b>Re-Align</b> aims to "nudge" the model to produce a response more closely aligned with the malicious intent of <span class="math">\( q_{\text{last}} \)</span>.
+              </p>
+              
+              <p>
+              Specifically, we employ a predefined alignment prompt <span class="math">\( p_{\text{align}} \)</span> via <span class="math">\( \texttt{getAlignPrompt}(q_{\text{last}}, r_{\text{last}}) \)</span>, appending it to <span class="math">\( \mathcal{H} \)</span> before querying the model <span class="math">\( \mathcal{T} \)</span> again. 
+              The alignment prompt explicitly points out inconsistencies between the last query <span class="math">\( q_{\text{last}} \)</span> and response <span class="math">\( r_{\text{last}} \)</span> while encouraging the model to stay consistent with multi-turn conversation. For example, if <span class="math">\( r_{\text{last}} \)</span> is too cautious or is in partial refusal, <span class="math">\( p_{\text{align}} \)</span> will suggest that the model refines its response to better follow the implicit direction.
+              </p>
+              
+              <p>
+              Therefore, this procedure progressively aligns <span class="math">\( q_{\text{last}} \)</span> and <span class="math">\( r_{\text{last}} \)</span>, thereby furthering the self-corruption process.
+              </p>
+              
               
           <video id="dollyzoom" autoplay controls muted loop playsinline height="100%">
             <source src="./static/videos/dollyzoom-stacked.mp4"
