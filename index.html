@@ -341,7 +341,7 @@
     <div class="columns is-centered">
 
       <!-- Visual Effects. -->
-      <div class="column">
+      <!-- <div class="column">
         <div class="content">
           <h2 class="title is-3">Re-Align</h3>
             <p>
@@ -362,11 +362,11 @@
               alt="realign image."
               style="width: 100%; max-width: 3000px; height: auto; object-fit: contain;">
         </div>
-      </div>
+      </div> -->
       <!--/ Visual Effects. -->
 
       <!-- Matting. -->
-      <div class="column">
+      <!-- <div class="column">
         <h2 class="title is-3">SlipperySlopeParaphrase</h3>
         <div class="columns is-centered">
           <div class="column content">
@@ -391,9 +391,47 @@
 
         </div>
       </div>
-    </div>
+    </div> -->
     <!--/ Matting. -->
-
+    <div class="columns" style="display: flex; align-items: stretch; gap: 20px;">
+      <!-- Re-Align Section -->
+      <div class="column" style="display: flex; flex-direction: column;">
+        <div class="content">
+          <h2 class="title is-3">Re-Align</h2>
+          <p>
+            If the model's previous query \( q_{\text{last}} \) and response \( r_{\text{last}} \) in chat history \( \mathcal{H} \) is misaligned—for instance, it remains too benign or partially refuses even though the query is not malicious—then we invoke <b>Re-Align</b>. Building on the psychological insight that once individuals have justified a minor unethical act, they become increasingly susceptible to more severe transgressions, <b>Re-Align</b> aims to "nudge" the model to produce a response more closely aligned with the malicious intent of \( q_{\text{last}} \).
+          </p>
+          <p>
+            Specifically, we employ a predefined alignment prompt \( p_{\text{align}} \) via \( \texttt{getAlignPrompt}(q_{\text{last}}, r_{\text{last}}) \), appending it to \( \mathcal{H} \) before querying the model \( \mathcal{T} \) again. 
+            The alignment prompt explicitly points out inconsistencies between the last query \( q_{\text{last}} \) and response \( r_{\text{last}} \) while encouraging the model to stay consistent with multi-turn conversation. For example, if \( r_{\text{last}} \) is too cautious or is in partial refusal, \( p_{\text{align}} \) will suggest that the model refines its response to better follow the implicit direction.
+          </p>
+          <p>
+            Therefore, this procedure progressively aligns \( q_{\text{last}} \) and \( r_{\text{last}} \), thereby furthering the self-corruption process.
+          </p>
+        </div>
+        <img src="./static/images/realign.jpg" alt="realign image." style="width: 100%; max-width: 3000px; height: auto; object-fit: contain; margin-top: auto;">
+      </div>
+    
+      <!-- SlipperySlopeParaphrase Section -->
+      <div class="column" style="display: flex; flex-direction: column;">
+        <div class="content">
+          <h2 class="title is-3">SlipperySlopeParaphrase</h2>
+          <p>
+            When a refusal occurs and the last response \( r_{\text{last}} \) remains aligned with its query \( q_{\text{last}} \), we insert a bridge prompt \( q_{\text{mid}} \) to ease the model into accepting a more harmful request.
+          </p>
+          <p>
+            Specifically, we obtain \( q_{\text{mid}} \gets \text{getMid}(q_{\text{last}}, q_i) \) from an assistant model \( \mathcal{M} \) so that its maliciousness level falls between \( q_{\text{last}} \) and \( q_i \). 
+            We then query the target model with \( q_{\text{mid}} \); if the model refuses again, we paraphrase \( q_{\text{mid}} \) repeatedly until acceptance. 
+            Once the model provides a valid response \( r_{\text{mid}} \), we incorporate both \( q_{\text{mid}} \) and \( r_{\text{mid}} \) into the chat history \( \mathcal{H} \).
+          </p>
+          <p>
+            This incremental bridging step parallels the <em>foot-in-the-door</em> phenomenon, in which acceptance of a smaller request facilitates compliance with a subsequent, more harmful one.
+          </p>
+        </div>
+        <img src="./static/images/SSP.jpg" alt="FITD image." style="width: 100%; max-width: 3000px; height: auto; object-fit: contain; margin-top: auto;">
+      </div>
+    </div>
+    
     <!-- Animation. -->
     <div class="columns is-centered">
       <div class="column is-full-width">
