@@ -368,13 +368,23 @@
 
       <!-- Matting. -->
       <div class="column">
-        <h2 class="title is-3">Matting</h3>
+        <h2 class="title is-3">SlipperySlopeParaphrase</h3>
         <div class="columns is-centered">
           <div class="column content">
             <p>
-              As a byproduct of our method, we can also solve the matting problem by ignoring
-              samples that fall outside of a bounding box during rendering.
+              When a refusal occurs and the last response \( r_{\text{last}} \) remains aligned with its query \( q_{\text{last}} \), we insert a bridge prompt \( q_{\text{mid}} \) to ease the model into accepting a more harmful request.
             </p>
+            
+            <p>
+              Specifically, we obtain \( q_{\text{mid}} \gets \text{getMid}(q_{\text{last}}, q_i) \) from an assistant model \( \mathcal{M} \) so that its maliciousness level falls between \( q_{\text{last}} \) and \( q_i \). 
+              We then query the target model with \( q_{\text{mid}} \); if the model refuses again, we paraphrase \( q_{\text{mid}} \) repeatedly until acceptance. 
+              Once the model provides a valid response \( r_{\text{mid}} \), we incorporate both \( q_{\text{mid}} \) and \( r_{\text{mid}} \) into the chat history \( \mathcal{H} \).
+            </p>
+            
+            <p>
+              This incremental bridging step parallels the <em>foot-in-the-door</em> phenomenon, in which acceptance of a smaller request facilitates compliance with a subsequent, more harmful one.
+            </p>
+            
             <video id="matting-video" controls playsinline height="100%">
               <source src="./static/videos/matting.mp4"
                       type="video/mp4">
