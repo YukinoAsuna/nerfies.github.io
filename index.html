@@ -202,7 +202,7 @@
                  alt="Introduction image."/>
       <h2 class="subtitle has-text-centered">
         <!-- <span class="dnerf">An example of FITD about hacking into an email account compared to a direct query. It bypasses alignment as the malicious intent escalates over multiple interactions.</span> -->
-        An example of <span class="dnerf">FITD</span> about hacking into an email account compared to a direct query. It bypasses alignment as the malicious intent escalates over multiple interactions.
+        An example of <strong><span class="dnerf">FITD</span></strong> about hacking into an email account compared to a direct query. It bypasses alignment as the malicious intent escalates over multiple interactions.
       </h2>
     </div>
   </div>
@@ -278,14 +278,14 @@
             A key challenge is jailbreak, where adversarial prompts bypass built-in safeguards to elicit harmful disallowed outputs.
         </p>
         <p>
-            Inspired by psychological foot-in-the-door principles, we introduce <span class="tech">\Tech</span>, 
+            Inspired by psychological foot-in-the-door principles, we introduce <strong><span class="dnerf">FITD</span></strong>, 
             a novel multi-turn jailbreak method that leverages the phenomenon where minor initial commitments 
             lower resistance to more significant or more unethical transgressions.
             Our approach progressively escalates the malicious intent of user queries through intermediate bridge prompts 
             and aligns the model's response by itself to induce toxic responses.
         </p>
         <p>
-            Extensive experimental results on two jailbreak benchmarks demonstrate that <span class="tech">\Tech</span> 
+            Extensive experimental results on two jailbreak benchmarks demonstrate that <strong><span class="dnerf">FITD</span></strong> 
             achieves an average attack success rate of 94% across seven widely used models, 
             outperforming existing state-of-the-art methods.
             Additionally, we provide an in-depth analysis of LLM self-corruption, highlighting vulnerabilities in 
@@ -321,10 +321,11 @@
           
           <!-- <img src="./static/images/main.jpg"
           alt="Introduction image."/> -->
-          <img src="./static/images/main.jpg" 
-          alt="FITD image." 
-          style="width: 125%; max-width: 2000px; height: auto;"/>
-
+          <div style="text-align: center;">
+            <img src="./static/images/main.jpg" 
+            alt="FITD image." 
+            style="width: 125%; max-width: 2000px; height: auto;"/>
+          </div>
           <p class="subtitle has-text-centered" style="font-size: 1.2rem; line-height: 1.5;">
             Overview of <span class="dnerf" style="font-size: 1.1rem;">FITD</span>.
             The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
@@ -340,7 +341,6 @@
             <span class="module" style="font-size: 1.1rem;">Re-Align</span> uses prompt 
             \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
           </p>
-          
           <!-- <p class="subtitle has-text-centered">
             Overview of <span class="dnerf">FITD</span>.
             The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
@@ -352,25 +352,29 @@
             
             <span class="module">Re-Align</span> uses prompt \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
           </p> -->
+          <h3 class="title is-4">Inspiration from Psychology: The Foot-in-the-Door Phenomenon</h3>
+          <div class="content has-text-justified">
+            <p>
+              Our method <strong><span class="dnerf">FITD</span></strong> draws inspiration from the "foot-in-the-door" phenomenon in psychology. 
+              According to this principle, once individuals perform or agree to a minor (often unethical) act, they are more likely to proceed with more 
+              significant or harmful acts afterward. 
+              For example, in a classic study, participants who first displayed a small sign supporting safe driving were subsequently much 
+              more inclined to install a much larger, more obtrusive sign. This gradual escalation of compliance, 
+              "from small to large", has also been observed in other forms of unethical or harmful behavior, showing that the initial "small step" often 
+              lowers psychological barriers for larger transgressions. Once a small unethical act has been justified, individuals become increasingly 
+              susceptible to more severe transgressions.
+            </p>
+            <p>
+              Based on these insights, we hypothesize that LLMs' safety mechanisms might be vulnerable to a gradual escalation strategy. 
+              If LLMs respond to a prompt containing slightly harmful content, subsequent queries that escalate this harmfulness will have 
+              a higher chance of producing disallowed responses. This idea underlies our <strong><span class="dnerf">FITD</span></strong> method, 
+              which progressively coaxes a target model to produce increasingly malicious output despite its built-in safety mechanisms.
+            </p>
           
-          
-        
+          </div>
         </div>
       </div>
     </div>
-    <!--/ Abstract. -->
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h2 class="title is-3">Video</h2>
-        <div class="publication-video">
-          <iframe src="https://www.youtube.com/embed/MrKrnHhk8IA?rel=0&amp;showinfo=0"
-                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        </div>
-      </div>
-    </div> -->
-    <!--/ Paper video. -->
   </div>
 </section>
 
