@@ -40,6 +40,11 @@ body {
   max-height: parent;
 
 }
+.title-logo {
+  height: 50px; /* 适应 SVG 大小 */
+  vertical-align: middle; /* 使 Logo 与文本垂直居中 */
+  margin-right: 10px; /* 设置 Logo 和文本之间的间距 */
+}
 
 .publication-banner video {
   position: relative;
