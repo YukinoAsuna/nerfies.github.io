@@ -258,32 +258,26 @@
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            We present the first method capable of photorealistically reconstructing a non-rigidly
-            deforming scene using photos/videos captured casually from mobile phones.
-          </p>
-          <p>
-            Our approach augments neural radiance fields
-            (NeRF) by optimizing an
-            additional continuous volumetric deformation field that warps each observed point into a
-            canonical 5D NeRF.
-            We observe that these NeRF-like deformation fields are prone to local minima, and
-            propose a coarse-to-fine optimization method for coordinate-based models that allows for
-            more robust optimization.
-            By adapting principles from geometry processing and physical simulation to NeRF-like
-            models, we propose an elastic regularization of the deformation field that further
-            improves robustness.
-          </p>
-          <p>
-            We show that <span class="dnerf">Nerfies</span> can turn casually captured selfie
-            photos/videos into deformable NeRF
-            models that allow for photorealistic renderings of the subject from arbitrary
-            viewpoints, which we dub <i>"nerfies"</i>. We evaluate our method by collecting data
-            using a
-            rig with two mobile phones that take time-synchronized photos, yielding train/validation
-            images of the same pose at different viewpoints. We show that our method faithfully
-            reconstructs non-rigidly deforming scenes and reproduces unseen views with high
-            fidelity.
-          </p>
+            Ensuring AI safety is crucial as large language models become increasingly integrated into real-world applications. 
+            A key challenge is jailbreak, where adversarial prompts bypass built-in safeguards to elicit harmful disallowed outputs.
+        </p>
+        <p>
+            Inspired by psychological foot-in-the-door principles, we introduce <span class="tech">\Tech</span>, 
+            a novel multi-turn jailbreak method that leverages the phenomenon where minor initial commitments 
+            lower resistance to more significant or more unethical transgressions.
+        </p>
+        <p>
+            Our approach progressively escalates the malicious intent of user queries through intermediate bridge prompts 
+            and aligns the model's response by itself to induce toxic responses.
+        </p>
+        <p>
+            Extensive experimental results on two jailbreak benchmarks demonstrate that <span class="tech">\Tech</span> 
+            achieves an average attack success rate of 94% across seven widely used models, 
+            outperforming existing state-of-the-art methods.
+            Additionally, we provide an in-depth analysis of LLM self-corruption, highlighting vulnerabilities in 
+            current alignment strategies and emphasizing the risks inherent in multi-turn interactions.
+        </p>
+        
         </div>
       </div>
     </div>
