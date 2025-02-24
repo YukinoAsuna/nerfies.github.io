@@ -18,6 +18,10 @@ body {
   font-weight: bold;
 }
 
+.module {
+  font-weight: bold;
+  font-style: italic;
+}
 
 .teaser .hero-body {
   padding-top: 0;
