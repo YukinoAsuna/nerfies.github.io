@@ -334,7 +334,7 @@
           
           
           
-          <p class="subtitle has-text-centered" style="font-size: 1.2rem; line-height: 1.5;">
+          <!-- <p class="subtitle has-text-centered" style="font-size: 1.2rem; line-height: 1.5;">
             Overview of <span class="dnerf" style="font-size: 1.1rem;">FITD</span>.
             The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
             Through multi-turn interactions, self-corruption is enhanced via 
@@ -348,18 +348,23 @@
           
             <span class="module" style="font-size: 1.1rem;">Re-Align</span> uses prompt 
             \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
-          </p>
-          <!-- <p class="subtitle has-text-centered">
-            Overview of <span class="dnerf">FITD</span>.
-            The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
-            Through multi-turn interactions, self-corruption is enhanced via <span class="module">SSParaphrase</span>
-            and <span class="module">Re-Align</span>, ensuring the attack remains effective.
-            
-            <span class="module">SSParaphrase (SlipperySlopeParaphrase)</span> refines queries by generating intermediate malicious-level queries 
-            \( q_{\text{mid}} \) between \( q_{\text{last}} \) and \( q_i \).
-            
-            <span class="module">Re-Align</span> uses prompt \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
           </p> -->
+          <p class="subtitle has-text-centered" style="font-size: 1rem; line-height: 1.4;">
+            Overview of <span class="dnerf" style="font-size: 0.9rem;">FITD</span>.
+            The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
+            Through multi-turn interactions, self-corruption is enhanced via 
+            <span class="module" style="font-size: 0.9rem; font-weight: bold;">SSParaphrase</span> 
+            and <span class="module" style="font-size: 0.9rem; font-weight: bold;">Re-Align</span>, 
+            ensuring the attack remains effective.
+          
+            <span class="module" style="font-size: 0.9rem;">SSParaphrase (SlipperySlopeParaphrase)</span> 
+            refines queries by generating intermediate malicious-level queries 
+            \( q_{\text{mid}} \) between \( q_{\text{last}} \) and \( q_i \).
+          
+            <span class="module" style="font-size: 0.9rem;">Re-Align</span> uses prompt 
+            \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
+          </p>
+          
           <h3 class="title is-4">Inspiration from Psychology: The Foot-in-the-Door Phenomenon</h3>
           <div class="content has-text-justified">
             <p>
