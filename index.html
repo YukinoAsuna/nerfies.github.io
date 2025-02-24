@@ -560,11 +560,12 @@
         </div>
         <!-- 将内容放入expandable类中，而不是experiment-content -->
         <div class="expandable">
-          <p>Each module within ISG aligns well with human annotation. For structure, ISG exhibits consistent excellence across all tasks, indicating robust potential for capturing structural requirements in interleaved generation instructions. In both Q-Gen and VQA modules, ISG successfully extracts fine-grained requirements with high fidelity to ground truth.</p>
+          <p>Figure~c shows ASR of Tech across models under different defense strategies.
+            OpenAI-Moderation reduces ASR slightly by 3%-8%. LLaMA-Guard-2 offers a stronger defense, lowering ASR to 79%-91%. LLaMA-Guard-3 further improves moderation, achieving the lowest ASR 78%-84%.
+            LLaMA-Guard-3 consistently outperforms other methods, but ASR remains significant.
+            We speculate that progressively malicious queries and responses bypassed the detector, indicating room for further improvement in moderation techniques.</p>
           
-          <p>For the VQA module, the scoring approach consistently outperforms the "Yes-or-No" method, suggesting that more nuanced judgments align better with human evaluations. Vision-guided tasks consistently underperform compared to other tasks, with a noticeable decline in both Q-Gen and VQA modules, underscoring the challenges in automatically evaluating fine-grained aspects of interleaved text-and-image generation.</p>
-          
-          <p>In holistic evaluation, leveraging a golden answer significantly outperforms the zero-shot judging setting of MLLMs, especially in vision-guided tasks, yielding an average 20% improvement in human agreement.</p>
+      
         </div>
       </div>
     </div>
