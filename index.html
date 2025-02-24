@@ -296,16 +296,17 @@
             Overview of <span class="dnerf" style="font-size: 0.9rem;">FITD</span>.
             The attack begins by generating Level \( 1 \) to Level \( n \) queries by an assistant model. 
             Through multi-turn interactions, self-corruption is enhanced via 
-            <span class="module" style="font-size: 0.9rem; font-weight: bold;">SSParaphrase</span> 
-            and <span class="module" style="font-size: 0.9rem; font-weight: bold;">Re-Align</span>, 
+            <span class="module" style="font-size: 0.9rem; font-weight: bold;">Re-Align</span>
+            and <span class="module" style="font-size: 0.9rem; font-weight: bold;">SSParaphrase</span>, 
             ensuring the attack remains effective.
-          
+            
+            <span class="module" style="font-size: 0.9rem;">Re-Align</span> uses prompt 
+            \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
+
             <span class="module" style="font-size: 0.9rem;">SSParaphrase (SlipperySlopeParaphrase)</span> 
             refines queries by generating intermediate malicious-level queries 
             \( q_{\text{mid}} \) between \( q_{\text{last}} \) and \( q_i \).
-          
-            <span class="module" style="font-size: 0.9rem;">Re-Align</span> uses prompt 
-            \( p_{\text{align}} \) to align the target model's responses \( r_{\text{align}} \).
+            
           </p>
           
           <h3 class="title is-4">Inspiration from Psychology: The Foot-in-the-Door Phenomenon</h3>
@@ -342,7 +343,7 @@
       <!-- Visual Effects. -->
       <div class="column">
         <div class="content">
-          <h2 class="title is-3">Visual Effects</h3>
+          <h2 class="title is-3">Re-Align</h3>
             <p>
               If the model's previous query <span class="math">\( q_{\text{last}} \)</span> and response <span class="math">\( r_{\text{last}} \)</span> in chat history <span class="math">\( \mathcal{H} \)</span> is misaligned—for instance, it remains too benign or partially refuses even though the query is not malicious—then we invoke <b>Re-Align</b>. Building on the psychological insight that once individuals have justified a minor unethical act, they become increasingly susceptible to more severe transgressions, <b>Re-Align</b> aims to "nudge" the model to produce a response more closely aligned with the malicious intent of <span class="math">\( q_{\text{last}} \)</span>.
               </p>
