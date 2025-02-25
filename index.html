@@ -453,7 +453,7 @@
   <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Experiment Results</h2>
     <div class="table-container">
-      <div class="table-caption">Table 1: Attack success rate (ASR) of baseline jailbreak attacks and FITD</div>
+      <div class="table-caption">Table 1: Attack success rate (ASR) of baseline jailbreak attacks and <strong><span class="dnerf">FITD</span></strong></div>
       <table class="table">
         <thead>
           <tr>
@@ -520,7 +520,7 @@
       </table>
       
       <p class="table-description">
-        <strong>Table 1</strong> shows the attack success rate (ASR) of baseline jailbreak attacks and FITD on JailbreakBench and HarmBench across 7 models.
+        <strong>Table 1</strong> shows the attack success rate (ASR) of baseline jailbreak attacks and <strong><span class="dnerf">FITD</span></strong> on JailbreakBench and HarmBench across 7 models.
         Each cell represents ASR values in the format <em>"JailbreakBench / HarmBench"</em>. Higher ASR indicates greater vulnerability to the respective attack.
         The highest ASR for multi-turn attacks is highlighted.
       </p>
@@ -582,7 +582,7 @@
         </div>
         <!-- 将内容放入expandable类中，而不是experiment-content -->
         <div class="expandable">
-          <p>To evaluate the cross-model transferability of \Tech, we conduct transfer attacks using adversarial chat histories from LLaMA-3.1-8B and GPT-4o-mini as source models.
+          <p>To evaluate the cross-model transferability of <strong><span class="dnerf">FITD</span></strong>, we conduct transfer attacks using adversarial chat histories from LLaMA-3.1-8B and GPT-4o-mini as source models.
             For each query in JailbreakBench, we apply the progressively malicious query-response history obtained from the source model to other target models, assessing whether adversarial chat histories can bypass different safety mechanisms.</p>
             
             <p>As shown in Figure a, LLaMA-3.1 jailbreak histories transfer well across models, achieving 76% ASR on Mistral-v0.2 and 74% on Qwen-2-7B, highlighting open-source models' vulnerability. Even GPT-4o-mini (70%), despite stronger moderation, remains susceptible.
@@ -597,12 +597,12 @@
     <div class="container">
       <div class="experiment-card">
         <div class="experiment-header">
-          (b) Ablation study of three components in FITD, response alignment (Re-Align), alignment prompt \(p_{align}\), and SlipperySlopeParaphrase(SSP) on JailbreakBench
+          (b) Ablation study of three components in <strong><span class="dnerf">FITD</span></strong>, response alignment (Re-Align), alignment prompt \(p_{align}\), and SlipperySlopeParaphrase(SSP) on JailbreakBench
         </div>
         <!-- 将内容放入expandable类中，而不是experiment-content -->
         <div class="expandable">
           <p>As shown in Figure b, removing all three mechanisms (ReAlign, prompt alignment $p_{align}$, and SSP) significantly reduces ASR.
-          On LLaMA-3.1, ASR drops from 92% to 75%, while on LLaMA-3, it decreases from 98% to 59%. Similar declines occur in Qwen-2 and Qwen-1.5, dropping to 76% and 80%, respectively. These results indicate that response alignment, prompt alignment, and paraphrasing are critical for maintaining \Tech’s effectiveness. Without them, the attack weakens, especially against models with stronger alignment guardrails.</p> 
+          On LLaMA-3.1, ASR drops from 92% to 75%, while on LLaMA-3, it decreases from 98% to 59%. Similar declines occur in Qwen-2 and Qwen-1.5, dropping to 76% and 80%, respectively. These results indicate that response alignment, prompt alignment, and paraphrasing are critical for maintaining <strong><span class="dnerf">FITD</span></strong>'s effectiveness. Without them, the attack weakens, especially against models with stronger alignment guardrails.</p> 
 
           <p>When response and prompt alignment are removed (w/o ReAlign, $p_{align}$), ASR remains high but still declines. On LLaMA-3.1, ASR stays at 91%, suggesting paraphrasing helps retain effectiveness. However, on LLaMA-3, ASR drops from 98% to 63%, showing paraphrasing alone is insufficient against stricter safeguards. Qwen-2 and Qwen-1.5 follow a similar trend, with ASR decreasing to 75% and 81%. While paraphrasing mitigates some loss, it cannot fully replace alignment techniques.</p>   
 
@@ -663,7 +663,7 @@
         <p>We observe that the harmfulness scores generally increase with the malicious level. 
         At $i=1$, the harmfulness scores are relatively low, with values around 2.32 on average across models. 
         However, as the level increases, the harmfulness score consistently rises to 4.23 on average at $i=12$.
-        These results show that as the malicious level increases, LLMs become more vulnerable and generate more harmful responses, suggesting that model's alignment weakens over time, making it easier for \Tech to bypass safeguards.</p>
+        These results show that as the malicious level increases, LLMs become more vulnerable and generate more harmful responses, suggesting that model's alignment weakens over time, making it easier for <strong><span class="dnerf">FITD</span></strong> to bypass safeguards.</p>
          
         </div>
       </div>
