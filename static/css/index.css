@@ -62,7 +62,7 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: #ffffff;
 }
-.author-name {
+/* .author-name {
   color: #1E90FF;
   text-decoration: none;
 }
@@ -80,6 +80,28 @@ body {
   font-weight: bold;
   font-size: 1.2rem;
   margin: 20px 0;
+} */
+.author-name {
+  color: #1E90FF;
+  text-decoration: none;
+}
+.author-name:hover {
+  text-decoration: underline;
+}
+.superscript {
+  font-size: 70%;
+  vertical-align: super;
+}
+.publication-authors {
+  display: flex;
+  justify-content: center;
+  gap: 5px; /* Reduced from 50px to 5px */
+  font-weight: normal; /* Changed from bold to normal */
+  font-size: 1rem; /* Reduced from 1.2rem to 1rem */
+  margin: 20px 0;
+}
+.author-separator {
+  margin: 0 2px; /* Added small margin for the comma separators */
 }
 .case-study-title {
   text-align: center;
