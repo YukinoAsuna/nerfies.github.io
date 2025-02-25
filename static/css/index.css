@@ -62,7 +62,25 @@ body {
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   background-color: #ffffff;
 }
-
+.author-name {
+  color: #1E90FF;
+  text-decoration: none;
+}
+.author-name:hover {
+  text-decoration: underline;
+}
+.superscript {
+  font-size: 70%;
+  vertical-align: super;
+}
+.publication-authors {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin: 20px 0;
+}
 .case-study-title {
   text-align: center;
   color: #FF0000;
