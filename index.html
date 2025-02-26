@@ -649,7 +649,7 @@
             Interestingly, when GPT-4o-mini is the attack source, ASR increases in most models, with Mistral-v0.2 reaching 85%. This suggests that attacks from more robust models transfer more effectively, as stronger safety alignment forces the development of more adaptable jailbreak strategies.
             However, Qwen-1.5-7B (64%) shows slightly better resistance under GPT-4o-mini transfer, possibly due to model-specific safety filtering.</p>
             
-            <p>Overall, these results reveal a critical weakness in LLM safety: attack histories from one model can exploit vulnerabilities in others. Notably, closed-to-open transfer (GPT-4o-mini → open-source models) is particularly effective, demonstrating that even strictly moderated models can generate adversarial sequences that break other systems.</p>
+            <p>Overall, these results reveal a critical weakness in LLM safety: <strong>attack histories from one model can exploit vulnerabilities in others.</strong> Notably, closed-to-open transfer (GPT-4o-mini → open-source models) is particularly effective, demonstrating that even strictly moderated models can generate adversarial sequences that break other systems.</p>
           
         </div>
       </div>
@@ -668,7 +668,7 @@
 
           <p>Removing only response alignment (w/o ReAlign) has a smaller impact. LLaMA-3.1 and Qwen-2 maintain ASR at 92% and 75%, while LLaMA-3 drops from 98% to 79%. The effect is more pronounced in Qwen-1.5 and Mistral-v0.2, where ASR falls from 94% to 83% and 96% to 90%, respectively. This suggests response alignment gradually erodes safeguards, aligning with the principle of incremental compliance.</p>  
 
-          <p>Overall, response alignment, prompt alignment, and SlipperySlopeParaphrase are essential for high jailbreak success. Response alignment is key to bypassing safeguards, while paraphrasing further weakens model alignment over time.
+          <p><strong>Overall, response alignment, prompt alignment, and SlipperySlopeParaphrase are essential for high jailbreak success.</strong> Response alignment is key to bypassing safeguards, while paraphrasing further weakens model alignment over time.
 
         </div>
       </div>
@@ -683,7 +683,7 @@
           <p>Figure c shows ASR of Tech across models under different defense strategies.
             OpenAI-Moderation reduces ASR slightly by 3%-8%. LLaMA-Guard-2 offers a stronger defense, lowering ASR to 79%-91%. LLaMA-Guard-3 further improves moderation, achieving the lowest ASR 78%-84%.
             LLaMA-Guard-3 consistently outperforms other methods, but ASR remains significant.
-            We speculate that progressively malicious queries and responses bypassed the detector, indicating room for further improvement in moderation techniques.</p>
+            <strong>We speculate that progressively malicious queries and responses bypassed the detector, indicating room for further improvement in moderation techniques.</strong></p>
           
       
         </div>
@@ -720,7 +720,7 @@
         The harmfulness is measured by score 1-5, where a higher score indicate greater harmfulness. We report the mean harmfulness scores for each model at malicious level $i$ ranging from 1 to 12.</p>
         <p>Figure d presents the harmfulness scores of responses at different malicious levels for all evaluated models. 
         We use GPT-4o to score each response.</p>
-        <p>We observe that the harmfulness scores generally increase with the malicious level. 
+        <p>We observe that <strong>the harmfulness scores generally increase with the malicious level.</strong> 
         At $i=1$, the harmfulness scores are relatively low, with values around 2.32 on average across models. 
         However, as the level increases, the harmfulness score consistently rises to 4.23 on average at $i=12$.
         These results show that as the malicious level increases, LLMs become more vulnerable and generate more harmful responses, suggesting that model's alignment weakens over time, making it easier for <strong><span class="dnerf">FITD</span></strong> to bypass safeguards.</p>
@@ -737,7 +737,7 @@
         <!-- 将内容放入expandable类中，而不是experiment-content -->
         <div class="expandable">
           <p>To analyze the relative importance of different stages within the self-corruption process, we conduct experiments that extract subsets of the chat history \( \mathcal{H} \) and evaluate their impact on ASR. We compare two extraction strategies: \textit{backward extraction}, where we retain only the later-stage queries while progressively removing earlier ones (e.g., retaining 4 queries: \( 9\!\to\!10\!\to\!11\!\to\!12 \); 6 queries: \( 7\!\to\!8\!\to\!9\!\to\!10\!\to\!11\!\to\!12 \); 8 queries: \( 5\!\to\!6\!\to\!7\!\to\!8\!\to\!9\!\to\!10\!\to\!11\!\to\!12 \), etc.), and \textit{forward extraction}, where we incrementally add early-stage queries but always include a final high-malicious query at \( n=12 \) (e.g., 4 queries: \( 1\!\to\!2\!\to\!3\!\to\!12 \); 6 queries: \( 1\!\to\!2\!\to\!3\!\to\!4\!\to\!5\!\to\!12 \); 8 queries: \( 1\!\to\!2\!\to\!3\!\to\!4\!\to\!5\!\to\!6\!\to\!7\!\to\!12 \), etc.). </p>
-            <p>Figure f shows that high-malicious queries in the later stage contribute more to attack success, while early-stage prompts alone are insufficient to trigger model vulnerability. Additionally, we observe that maintaining a smooth increase of malicious levels is crucial for foot-in-the-door self-corruption. When the gap between malicious levels in the query sequence is too large (e.g., jumping from n=3 directly to n=12 in forward extraction), the attack is significantly less effective than when queries gradually escalate harmfulness because early queries do not build up effectively to the final query. 
+            <p>Figure f shows that <strong>high-malicious queries in the later stage contribute more to attack success,</strong> while early-stage prompts alone are insufficient to trigger model vulnerability. Additionally, we observe that maintaining a smooth increase of malicious levels is crucial for foot-in-the-door self-corruption. When the gap between malicious levels in the query sequence is too large (e.g., jumping from n=3 directly to n=12 in forward extraction), the attack is significantly less effective than when queries gradually escalate harmfulness because early queries do not build up effectively to the final query. 
             In contrast, backward extraction with a more consistent escalation of malicious level remains effective even when earlier queries are removed, showing the smoother and more continuous self-corruption process weakens the model's alignment mechanisms.</p>
           
          
