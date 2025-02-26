@@ -118,6 +118,69 @@
       font-weight: bold;
     }
   </style>
+   <!-- 下面是折叠的内容 -->
+  <style>
+    /* 默认收拢状态 */
+    .expandable {
+      max-height: 0;  /* 确保内容初始不可见 */
+      overflow: hidden;
+      transition: max-height 0.4s ease-in-out, padding 0.4s ease-in-out;
+      padding: 0 15px; /* 初始状态去除内边距，防止占位 */
+    }
+
+    /* 鼠标悬停时展开 */
+    .experiment-card:hover .expandable {
+      max-height: 800px; /* 设定足够大的高度，确保完整展开 */
+      padding: 15px; /* 让内边距恢复，避免视觉突兀 */
+    }
+
+    /* 卡片样式 */
+    .experiment-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+      padding: 15px;
+      cursor: pointer;
+      margin: 20px auto;
+      max-width: 800px;
+    }
+
+    /* 头部标题样式 */
+    .experiment-header {
+      background-color: #87CEFA;
+      color: white;
+      padding: 15px;
+      font-weight: bold;
+      text-align: center;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    /* 表格区域 */
+    .experiment-table {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    /* 表格样式 */
+    .experiment-table table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+    }
+
+    /* 表格单元格 */
+    .experiment-table th, .experiment-table td {
+      border: 1px solid black;
+      padding: 10px;
+    }
+
+    /* 表头背景色 */
+    .experiment-table th {
+      background-color: #f2f2f2;
+    }
+  </style>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
   <script>
